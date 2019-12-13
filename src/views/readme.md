@@ -1,0 +1,12 @@
+<!-- 
+新建文件有：
+    home:首页
+    gotomarket：工程赶集
+    crowdsourcing：众包工厂
+    oncall：电召大厅
+    entrust：一站委托
+    academy：工厂学院
+待建立：
+    个人中心
+    其它页面
+ -->
