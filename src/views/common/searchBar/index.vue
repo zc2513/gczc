@@ -308,7 +308,7 @@ export default {
                     }
                 }
                 &:nth-of-type(2){
-                    flex: 1;
+                    flex-grow: 1;
                     display: flex;
                     align-items: center;
                     padding-left: 10px;

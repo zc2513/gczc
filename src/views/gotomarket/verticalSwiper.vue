@@ -136,7 +136,7 @@ export default {
                                 width: 80px;
                             }
                             .center{
-                                flex: 1;
+                                flex-grow: 1;
                                 overflow: hidden;
                             }
                             .time{
@@ -164,7 +164,7 @@ export default {
                                     padding: 0 10px;
                                 }
                                 &:nth-of-type(2){
-                                    flex: 1;
+                                    flex-grow: 1;
                                     padding: 0 4px;
                                 }
                                 &:last-of-type{

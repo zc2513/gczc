@@ -73,7 +73,7 @@ export default {
             padding: 0 10px;
             display: flex;
             .left{
-                flex: 1;
+                flex-grow: 1;
                 padding-left: 20px;
                 position: relative;
                 &:hover{

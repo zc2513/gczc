@@ -126,7 +126,7 @@ export default {
                     }
                   }
                   .right{
-                    flex: 1;
+                    flex-grow: 1;
                     margin:0 25px;
                     h4{
                       height: 40px;

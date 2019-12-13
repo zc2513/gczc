@@ -48,7 +48,7 @@ $height:24px;
         margin-left: 20px;
         font-size: 14px;
         color: #666;
-        flex: 1;
+        flex-grow: 1;
         .relation-item{
             display: flex;
             .item-left{
@@ -71,7 +71,7 @@ $height:24px;
                 }
             }
             .lx{
-                flex: 1;
+                flex-grow: 1;
                 >div{
                     height: $height;
                     line-height: $height;

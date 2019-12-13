@@ -51,7 +51,7 @@ export default {
                 }
             }
             &:last-of-type{
-                flex: 1;
+                flex-grow: 1;
                 height: 80px;
                 display: flex;
                 flex-wrap: wrap;
