@@ -293,7 +293,7 @@ export default {
             display: flex;
             >div{//内容样式
                 &:first-of-type,&:last-of-type{
-                    width: 100px;
+                    min-width: 100px;
                     height: $height;
                     line-height: $height;
                     text-align: right;
