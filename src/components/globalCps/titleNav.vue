@@ -1,6 +1,6 @@
 <template>
   <div class="title-nav-box">
-    <div class="title">
+    <div class="title" :class="{wireb:iswireb}">
       <div
         :class="{verticalLine:titleObj.isLine}"
         :style="{
@@ -41,6 +41,10 @@ export default {
           ismore: false
         }
       }
+    },
+    iswireb:{
+      type:Boolean,
+      default:false
     }
   },
   methods: {

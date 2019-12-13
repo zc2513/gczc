@@ -20,7 +20,23 @@
         </el-menu>
       </div>
       <transition v-if="navBarFixed" name="el-zoom-in-top">
-        <div :class="{navBarWrap:navBarFixed}" class="nav-header-fixed h50">我是导航栏数据</div>
+        <div :class="{navBarWrap:navBarFixed}" class="nav-header-fixed h50">
+          <div :style="{backgroundColor:variables.hBgc}" class="nav-header-container">
+            <el-menu
+              class="nav-header typeArea"
+              mode="horizontal"
+              :background-color="variables.hBgc"
+              :default-active="activeMenu"
+              :collapse="false"
+              :text-color="variables.hText"
+              :unique-opened="true"
+              :active-text-color="variables.hActiveText"
+              :collapse-transition="false"
+            >
+              <nav-item v-for="route in routes" :key="route.path" :item="route" :base-path="route.path" />
+            </el-menu>
+          </div>
+        </div>
       </transition>
     </div>
     <!-- 视图层 -->
