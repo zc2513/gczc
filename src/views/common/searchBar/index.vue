@@ -8,7 +8,7 @@
           <el-tag v-if="active != '其它'" type="warning" size="small" closable @close="close">{{ active }}</el-tag>
         </div>
         <div>
-          <el-button type="text">清空选项</el-button>
+          <el-button type="text" @click="close">清空选项</el-button>
         </div>
       </div>
       <div>
@@ -20,8 +20,8 @@
             <li
               v-for="(item,index) in teamType"
               :key="index"
-              :class="{'isActive':active==index}"
-              @click="select(item.ClassName)"
+              :class="{'isActive':active==item.ClassName}"
+              @click="select(item.ClassName,item.ClassNum)"
             >{{ item.ClassName }}</li>
           </ul>
         </div>
@@ -48,8 +48,8 @@
           />
         </div>
         <div class="slot-right">
-          <el-input placeholder="请输入内容" size="mini">
-            <el-button slot="append" type="success" size="mini">搜索</el-button>
+          <el-input placeholder="请输入内容" size="mini" v-model="queryData.searchData" clearable>
+            <el-button slot="append" type="success" size="mini" @click="search">搜索</el-button>
           </el-input>
         </div>
       </div>
@@ -66,6 +66,10 @@ export default {
   },
   data() {
     return {
+      queryData:{
+        type:null,
+        searchData:null,
+      },
       active: '其它',
       isHidden: false,
       options: [{
@@ -266,16 +270,21 @@ export default {
     }
   },
   methods: {
-    select(e) {
+    select(e,type) { 
       this.active = e
-      this.$emit('change', { message: '当前选中项的值' })
+      this.queryData.type = type
+      this.search()
     },
     togger() {
       this.isHidden = !this.isHidden
     },
     close() {
-      this.active = '其它'
-      this.$message.success('待处理')
+      this.active = '其它' 
+      this.queryData.type = null
+      this.search()
+    },
+    search(){
+       this.$emit('teamChange', this.queryData)
     }
   }
 }

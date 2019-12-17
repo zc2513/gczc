@@ -35,8 +35,8 @@
         </div>
       </div>
     </div>
-    <div class="page-box">
-      <pagination />
+    <div class="page-box"> 
+      <pagination :total='compListResult.Total' @changePage="getPage"/>
     </div>
   </div>
 </template>
@@ -56,6 +56,9 @@ export default {
   methods: {
     hire(id) {
       this.$message.success(id)
+    },
+    getPage(e){
+      this.$emit('changePage',e)
     },
     goto() {
       this.$router.push({
