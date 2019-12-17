@@ -8,6 +8,7 @@ import qs from 'qs'
  * @api getSwiper
  * @description 获取轮播图信息
  */
+
 export function getSwiper(data) {
   return request({
     url: '/table/list',
@@ -15,6 +16,12 @@ export function getSwiper(data) {
     data: qs.stringify(data)
   })
 }
+
+// export function getSwiper() {
+//   return request({
+//     url: '/v2/movie/top250'
+//   })
+// }
 
 /**
  * @api getProModule

@@ -1,7 +1,61 @@
 #app{
-    .nav-header-fixed{//关于固定导航栏样式配置
-      background-color: $headerMenuBgc;
+    .nav-header-fixed{//关于固定导航栏样式配置 
+      background-color: $fixHeaderMenuBgc;
+      $nav-height:50px;
+      height: $nav-height; 
+      border-bottom: 1px #ededed solid;
+      box-shadow: 1px 2px 5px #f3f3f3;
+      .fixed-row{
+        .row-ico{
+          float: left; 
+          width: 140px;
+          height: 50px;  
+          padding: 2.5px 0;
+          img{
+            width: 100%; 
+          }
+        }
+        .row-menu{
+          float: left;
+          background-color: #e2e2e2;
+          width: 860px;
+          max-width: 910px;
+          a{
+            display: inline-block;
+            height: 100%;
+          }
+          .el-menu-item, .el-submenu__title{
+            height: 100%;
+          }
+          .el-menu.el-menu--horizontal{
+            border-bottom-color: rgba($color: #000000, $alpha: 0);
+          }
+        }
+        .row-btn{
+          float: right; 
+        }
+      }
+      // overflow: hidden;
+      .nav-header{ 
+          height: $nav-height;  
+          display: flex; 
+          text-align: center; 
+      }
+
+      .submenu-title-noDropdown,
+      .el-submenu__title {
+        &:hover {
+          background-color: #fff !important;
+          border-bottom: 2px solid #f60 !important;
+        }
+      }
+      .is-active{
+          background-color: #FFF !important;;
+          border-bottom: 2px solid #f60 !important;
+      }
+
     }
+    // 导航栏样式
     .nav-header-container {//关于点击导航样式配置 
         $nav-height:36px;
         height: $nav-height; 
@@ -47,7 +101,8 @@
             background-color:  $headerActiveMenuBgc !important;
           }
         }
-    }
+    } 
+
 }
 // 下拉框垂直方向样式
 .el-menu--horizontal {

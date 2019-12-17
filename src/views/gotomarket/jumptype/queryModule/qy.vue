@@ -1,25 +1,33 @@
 <template>
-    <div class="qy-box"> 
-        <div class="title">
-            <span>优秀企业推荐</span>   
-        </div>
-        <div class="list">
-            <div v-for="(item,index) in 6" :key="index">
-                <div class="img-box flcc">
-                    <img src="../../../../assets/imgs/floor/ewm.jpg" alt="">
-                </div>
-                <div class="describe elps">
-                    减肥的考虑
-                </div>
-            </div> 
-        </div>
+  <div class="qy-box">
+    <div class="title">
+      <span>优秀企业推荐</span>
     </div>
+    <div v-if="TeamRecList&&TeamRecList.Rows" class="list">
+      <div v-for="(item,index) in TeamRecList.Rows" @click="skip(item.ID)" :key="index">
+        <div class="img-box flcc">
+
+          <img v-if="item.logo" :src="item.logo" alt="">
+          <img v-else src="../../../../assets/imgs/floor/ewm.jpg" alt="">
+        </div>
+        <div class="describe elps">
+          {{ item.CompDetpName }}
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-    export default {
-        
+import skip from './mixin'
+export default {
+  props: {
+    TeamRecList:{
+      type:Object
     }
+  },
+  mixins:[skip]
+}
 </script>
 
 <style lang="scss" scoped>
@@ -31,30 +39,30 @@ $color:#f60;
 .qy-box{
     width: 100%;
     border-top: 1px solid #e5e5e5;
-    border-left: 1px solid #e5e5e5;  
+    border-left: 1px solid #e5e5e5;
     .title{
         @include border;
-        padding: 15px; 
+        padding: 15px;
         span{
             color: #333;
             font-size: 16px;
             padding-left: 6px;
             border-left: 2px solid #21a0f5;
         }
-    } 
+    }
     .list{
         display: flex;
-        flex-wrap: wrap;  
+        flex-wrap: wrap;
         :hover{
             color: $color;
         }
         >div{
-            @include border; 
+            @include border;
             width: 50%;
             height: 124px;
             cursor: pointer;
-            text-align: center;   
-            position: relative; 
+            text-align: center;
+            position: relative;
             &:hover{
               &::after{
                     content: '';
@@ -64,7 +72,7 @@ $color:#f60;
                     left: 0;
                     top: 0;
                     bottom: 0;
-                }  
+                }
             }
             .img-box{
                 height: 100px;
@@ -73,7 +81,7 @@ $color:#f60;
                 }
             }
             .describe{
-                font-size: 14px; 
+                font-size: 14px;
             }
         }
     }

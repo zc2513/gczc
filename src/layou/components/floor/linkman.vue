@@ -1,33 +1,45 @@
 <template>
+  <!-- 底部联系人部分 -->
   <div class="link-man-box">
     <div class="QR">
       <img src="../../../assets/imgs/floor/ewm.jpg" alt="">
     </div>
     <div class="relation">
-      <div v-for="(item,index) in links.data" :key="index" class="relation-item">
+      <div v-for="(item,index) in FooterInfos.Contacts" :key="index" class="relation-item">
         <div class="item-left">
-          <em><img src="../../../assets/imgs/floor/ewm.jpg" alt=""></em>{{ item.type }}：
+          <em><img src="../../../assets/imgs/floor/ewm.jpg" alt=""></em>{{ item.Type }}：
         </div>
         <div class="lx">
-          <div v-for="(ele,k) in item.links" :key="k">{{ ele.name }} {{ ele.phone }}</div>
+          <div v-for="(ele,k) in item.Info" :key="k">{{ ele.Name }} {{ ele.Tel }}</div>
         </div>
       </div>
       <div class="other" style="margin-top:6px;">
-        E-mail：huachunzhch@163.com
+        E-mail：{{ FooterInfos.Email }}
       </div>
       <div class="other">
-        地 址：西安市南二环西段58号成长大厦8层
+        地 址：{{ FooterInfos.Address }}
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { getfooter } from '@/api/public/footer'
 export default {
   props: {
     links: {
       type: Object
     }
+  },
+  data() {
+    return {
+      FooterInfos: {}
+    }
+  },
+  created() {
+    getfooter().then(res => {
+      this.FooterInfos = res.FooterInfo
+    })
   }
 }
 </script>

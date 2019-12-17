@@ -26,7 +26,8 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   response => {
     const res = response.data
-
+    return res
+    /* //全局处理---暂时无用
     if (res.code !== 200) {
       Message({
         message: res.message || showStatus(res.code) || 'Error',
@@ -48,7 +49,7 @@ service.interceptors.response.use(
       return Promise.reject(new Error(res.message || 'Error'))
     } else {
       return res
-    }
+    } */
   },
   error => {
     console.log('错误信息' + error) // for debug

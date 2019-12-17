@@ -20,8 +20,31 @@
         </el-menu>
       </div>
       <transition v-if="navBarFixed" name="el-zoom-in-top">
-        <div :class="{navBarWrap:navBarFixed}" class="nav-header-fixed h50"> 
-          666
+        <div :class="{navBarWrap:navBarFixed}" class="nav-header-fixed h50">
+          <div class="typeArea fixed-row clearfix">
+            <div class="row-ico"><img src="../assets/imgs/fx-logo.jpg" alt=""></div>
+            <div class="row-menu">
+              <el-menu
+                class="nav-header"
+                mode="horizontal"
+                :background-color="variables.fixHbac"
+                :default-active="activeMenu"
+                :collapse="false"
+                :text-color="variables.fixHeaderTextColor"
+                :unique-opened="true"
+                :active-text-color="variables.fixHActiveText"
+                :collapse-transition="false"
+              >
+                <nav-item v-for="route in routes" :key="route.path" :item="route" :base-path="route.path" />
+              </el-menu>
+            </div>
+            <div class="row-btn">
+              <el-button size="mini" type="warning">登录</el-button>
+              <el-button size="mini" type="primary">注册</el-button>
+              <el-button size="mini" type="warning">免费发布</el-button>
+            </div>
+          </div>
+
         </div>
       </transition>
     </div>
@@ -63,6 +86,7 @@ export default {
       if (meta.activeMenu) {
         return meta.activeMenu
       }
+      console.log(path)
       return path
     },
     variables() {
@@ -80,6 +104,9 @@ export default {
       } else {
         this.navBarFixed = false
       }
+    },
+    save(e) {
+      console.log(e)
     }
   }
 }

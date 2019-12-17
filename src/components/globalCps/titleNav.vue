@@ -42,9 +42,9 @@ export default {
         }
       }
     },
-    iswireb:{
-      type:Boolean,
-      default:false
+    iswireb: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {

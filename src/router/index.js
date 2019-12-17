@@ -23,6 +23,7 @@ import Layou from '@/layou'
  * constantRoutes
  * 无权限要求的配置数据，所以路由用户均可访问
  */
+
 export const constantRoutes = [
   {
     path: '/',
@@ -56,15 +57,14 @@ export const constantRoutes = [
     path: '/gotomarket',
     component: Layou,
     redirect: '/gotomarket/index',
-    name: 'gotomarket',
+    name: 'gotomark',
     meta: { title: '工程赶集', icon: 'form' },
     children: [
       {
         path: 'index',
         name: 'gotomarket',
         component: () => import('@/views/gotomarket/index'),
-        meta: { title: '工程赶集首页', icon: 'form' },
-        hidden: true
+        meta: { title: '工程赶集', icon: 'form' }
       },
       {
         path: 'jump',

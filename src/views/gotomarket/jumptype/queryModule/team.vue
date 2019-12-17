@@ -1,30 +1,38 @@
 <template>
-    <div class="team-box">
-        <div class="title"> 优秀团队推荐 </div>
-        <ul>
-            <li class="elps" v-for="(item,index) in 10" :key="index">工程造价咨询工作室</li> 
-        </ul>
-    </div>
+  <div class="team-box" v-if="CompDeptList&&CompDeptList.Rows">
+    <div class="title"> 优秀团队推荐 </div>
+    <ul>
+      <li 
+        v-for="(item,index) in CompDeptList.Rows" 
+        :key="index" 
+        @click="skip(item.ID)"
+        class="elps">
+        {{item.CompDetpName}}
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
-    export default {
-        
-    }
+import skip from './mixin'
+export default {
+  props:['CompDeptList'],
+  mixins:[skip]
+}
 </script>
 
 <style lang="scss" scoped>
 .team-box{
     margin-top: 20px;
     width: 100%;
-    border: 1px solid #e5e5e5; 
-    padding: 15px; 
-    .title{  
+    border: 1px solid #e5e5e5;
+    padding: 15px;
+    .title{
         color: #333;
         font-size: 16px;
         padding-left: 6px;
-        border-left: 2px solid #21a0f5; 
-    }  
+        border-left: 2px solid #21a0f5;
+    }
     ul{
         font-size: 14px;
         color: #666;
