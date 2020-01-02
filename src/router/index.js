@@ -10,6 +10,8 @@ import Layou from '@/layou'
  * hidden: true                   true不显示路由,默认为false
  * redirect: noRedirect           如果设置noRedirect将不会在面包屑中重定向
  * name:'router-name'             路由名称，在<keep-alive>中使用(必须设置)
+ * alwaysShow:Boolean             默认false不显示,使用的是嵌套模式，也就是子菜单不为单项时显示跟菜单，为单项时显示子菜单
+ *                                设置为true时始终显示根菜单
  * meta : {
     roles: ['admin','editor']    控制页面角色(您可以设置多个角色)
     title: 'title'               侧栏和面包屑展示的名称
@@ -20,6 +22,7 @@ import Layou from '@/layou'
  */
 
 /**
+ * path 支持http/s地址
  * constantRoutes
  * 无权限要求的配置数据，所以路由用户均可访问
  */
@@ -44,12 +47,16 @@ export const constantRoutes = [
     {
         path: '/home',
         component: Layou,
+        redirect: '/home/index',
+        alwaysShow: true,
+        meta: { title: '首页', icon: 'form' },
         children: [
             {
                 path: 'index',
                 name: 'home',
                 component: () => import('@/views/home/index'),
-                meta: { title: '首页', icon: 'form' }
+                meta: { title: '首页内容', icon: 'form' },
+                hidden: true
             }
         ]
     },
