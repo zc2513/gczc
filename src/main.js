@@ -17,12 +17,6 @@ import '@/utils/components' // 全局组件注册
 
 import scroll from 'vue-seamless-scroll'
 Vue.use(scroll)
-
-// import { mockXHR } from '../mock'
-// if (process.env.NODE_ENV === 'development') {
-//     mockXHR()
-// }
-
 Vue.use(ElementUI)
 
 Vue.config.productionTip = false

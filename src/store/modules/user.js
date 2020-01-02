@@ -1,6 +1,7 @@
-import { login, logout, getInfo } from '@/api/user'
+// import { login, logout, getInfo } from '@/api/user'
+// eslint-disable-next-line no-unused-vars
 import { getToken, setToken, removeToken } from '@/utils/auth'
-import { resetRouter } from '@/router'
+// import { resetRouter } from '@/router'
 
 const state = {
     token: getToken(),
@@ -23,50 +24,56 @@ const mutations = {
 const actions = {
     // user login
     login({ commit }, userInfo) {
-        const { username, password } = userInfo
+        // const { username, password } = userInfo
         return new Promise((resolve, reject) => {
-            login({ username: username.trim(), password: password }).then(response => {
-                const { data } = response
-                commit('SET_TOKEN', data.token)
-                setToken(data.token)
-                resolve()
-            }).catch(error => {
-                reject(error)
-            })
+            alert('缺少登录接口')
+            resolve()
+            // login({ username: username.trim(), password: password }).then(response => {
+            //     const { data } = response
+            //     commit('SET_TOKEN', data.token)
+            //     setToken(data.token)
+            //     resolve()
+            // }).catch(error => {
+            //     reject(error)
+            // })
         })
     },
 
     // get user info
     getInfo({ commit, state }) {
         return new Promise((resolve, reject) => {
-            getInfo(state.token).then(response => {
-                const { data } = response
+            alert('缺少信息拉去接口')
+            resolve()
+            // getInfo(state.token).then(response => {
+            //     const { data } = response
 
-                if (!data) {
-                    reject('获取用户信息失败，请重新登录')
-                }
+            //     if (!data) {
+            //         reject('获取用户信息失败，请重新登录')
+            //     }
 
-                const { name, avatar } = data
-                commit('SET_NAME', name)
-                commit('SET_AVATAR', avatar)
-                resolve(data)
-            }).catch(error => {
-                reject(error)
-            })
+            //     const { name, avatar } = data
+            //     commit('SET_NAME', name)
+            //     commit('SET_AVATAR', avatar)
+            //     resolve(data)
+            // }).catch(error => {
+            //     reject(error)
+            // })
         })
     },
 
     // user logout
     logout({ commit, state }) {
         return new Promise((resolve, reject) => {
-            logout(state.token).then(() => {
-                commit('SET_TOKEN', '')
-                removeToken()
-                resetRouter()
-                resolve()
-            }).catch(error => {
-                reject(error)
-            })
+            alert('缺少退出接口')
+            resolve()
+            // logout(state.token).then(() => {
+            //     commit('SET_TOKEN', '')
+            //     removeToken()
+            //     resetRouter()
+            //     resolve()
+            // }).catch(error => {
+            //     reject(error)
+            // })
         })
     },
 
