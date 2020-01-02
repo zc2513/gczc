@@ -1,9 +1,9 @@
 <template>
-  <div v-if="CompDeptList&&CompDeptList.Rows" class="team-box">
+  <div v-if="compDeptList&&compDeptList.Rows" class="team-box">
     <div class="title"> 优秀团队推荐 </div>
     <ul>
       <li
-        v-for="(item,index) in CompDeptList.Rows"
+        v-for="(item,index) in compDeptList.Rows"
         :key="index"
         class="elps"
         @click="skip(item.ID)"

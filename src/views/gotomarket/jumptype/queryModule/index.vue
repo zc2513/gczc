@@ -37,10 +37,11 @@ import qy from './qy'
 import team from './team'
 import { GetSubstation } from '@/api/gotomarket/queryModule'
 export default {
+    // eslint-disable-next-line vue/no-unused-components
     components: { navSwiper, searchBar, showList, qy, team },
     data() {
         return {
-            pageData: {},
+            pageData: { },
             reqData: {
                 OP: 'teamList',
                 page_size: 10,

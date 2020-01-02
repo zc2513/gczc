@@ -3,8 +3,8 @@
     <div class="title">
       <span>优秀企业推荐</span>
     </div>
-    <div v-if="TeamRecList&&TeamRecList.Rows" class="list">
-      <div v-for="(item,index) in TeamRecList.Rows" :key="index" @click="skip(item.ID)">
+    <div v-if="teamRecList&&teamRecList.Rows" class="list">
+      <div v-for="(item,index) in teamRecList.Rows" :key="index" @click="skip(item.ID)">
         <div class="img-box flcc">
 
           <img v-if="item.logo" :src="item.logo" alt="">
