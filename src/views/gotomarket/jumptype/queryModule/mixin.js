@@ -3,11 +3,11 @@
  */
 
 const skip = {
-  methods: {
-    skip(id) {
-      this.$message.info(id)
+    methods: {
+        skip(id) {
+            this.$message.info(id)
+        }
     }
-  }
 }
 
 export default skip

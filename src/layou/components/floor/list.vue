@@ -9,11 +9,12 @@
 
 <script>
 export default {
-  props: {
-    list: {
-      type: Object
+    props: {
+        // eslint-disable-next-line vue/require-default-prop
+        list: {
+            type: Object
+        }
     }
-  }
 }
 </script>
 

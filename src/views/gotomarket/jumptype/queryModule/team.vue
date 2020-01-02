@@ -1,13 +1,14 @@
 <template>
-  <div class="team-box" v-if="CompDeptList&&CompDeptList.Rows">
+  <div v-if="CompDeptList&&CompDeptList.Rows" class="team-box">
     <div class="title"> 优秀团队推荐 </div>
     <ul>
-      <li 
-        v-for="(item,index) in CompDeptList.Rows" 
-        :key="index" 
+      <li
+        v-for="(item,index) in CompDeptList.Rows"
+        :key="index"
+        class="elps"
         @click="skip(item.ID)"
-        class="elps">
-        {{item.CompDetpName}}
+      >
+        {{ item.CompDetpName }}
       </li>
     </ul>
   </div>
@@ -16,8 +17,9 @@
 <script>
 import skip from './mixin'
 export default {
-  props:['CompDeptList'],
-  mixins:[skip]
+    mixins: [skip],
+    // eslint-disable-next-line vue/require-prop-types
+    props: ['compDeptList']
 }
 </script>
 

@@ -23,17 +23,17 @@
 
 <script>
 export default {
-  data() {
-    return {
-      btns: ['工程资讯', '企业新闻', '行业资讯'],
-      istrue: 0
+    data() {
+        return {
+            btns: ['工程资讯', '企业新闻', '行业资讯'],
+            istrue: 0
+        }
+    },
+    methods: {
+        pitchOn(e) {
+            this.istrue = e
+        }
     }
-  },
-  methods: {
-    pitchOn(e) {
-      this.istrue = e
-    }
-  }
 }
 </script>
 

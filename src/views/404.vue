@@ -23,12 +23,12 @@
 <script>
 
 export default {
-  name: 'Page404',
-  computed: {
-    message() {
-      return '网站管理员说你不能进入这个页面…'
+    name: 'Page404',
+    computed: {
+        message() {
+            return '网站管理员说你不能进入这个页面…'
+        }
     }
-  }
 }
 </script>
 

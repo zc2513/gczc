@@ -32,38 +32,38 @@
  *  每次移动距离:   singleHeight 结合waitTime使用
  */
 export default {
-  props: {
-    autoPlay: {
-      type: Boolean,
-      default: true
-    },
-    direction: {
-      type: Number,
-      default: 1
-    },
-    step: {
-      type: Number,
-      default: 1
-    },
-    hoverStop: {
-      type: Boolean,
-      default: true
-    },
-    waitTime: {
-      type: Number,
-      default: 0
-    },
-    singleHeight: {
-      type: Number,
-      default: 0
-    },
-    listData: {
-      type: Array,
-      default: function() {
-        return []
-      }
+    props: {
+        autoPlay: {
+            type: Boolean,
+            default: true
+        },
+        direction: {
+            type: Number,
+            default: 1
+        },
+        step: {
+            type: Number,
+            default: 1
+        },
+        hoverStop: {
+            type: Boolean,
+            default: true
+        },
+        waitTime: {
+            type: Number,
+            default: 0
+        },
+        singleHeight: {
+            type: Number,
+            default: 0
+        },
+        listData: {
+            type: Array,
+            default: function() {
+                return []
+            }
+        }
     }
-  }
 }
 </script>
 <style lang="scss" scoped>

@@ -28,30 +28,30 @@
 
 <script>
 export default {
-  name: 'TitleNav',
-  props: {
-    titleObj: {
-      type: Object,
-      default: function() {
-        return {
-          color: '#ff6620',
-          fontSize: '20px',
-          con: '默认标题',
-          describe: '默认描述',
-          ismore: false
+    name: 'TitleNav',
+    props: {
+        titleObj: {
+            type: Object,
+            default: function() {
+                return {
+                    color: '#ff6620',
+                    fontSize: '20px',
+                    con: '默认标题',
+                    describe: '默认描述',
+                    ismore: false
+                }
+            }
+        },
+        iswireb: {
+            type: Boolean,
+            default: false
         }
-      }
     },
-    iswireb: {
-      type: Boolean,
-      default: false
+    methods: {
+        save(con) {
+            this.$message.success(`${con}--待处理`)
+        }
     }
-  },
-  methods: {
-    save(con) {
-      this.$message.success(`${con}--待处理`)
-    }
-  }
 }
 </script>
 

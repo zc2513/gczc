@@ -23,7 +23,7 @@
 <script>
 import pagination from '@/components/pagination'
 export default {
-  components: { pagination }
+    components: { pagination }
 }
 </script>
 

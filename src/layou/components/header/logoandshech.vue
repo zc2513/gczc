@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: 'LogoSeach'
+    name: 'LogoSeach'
 }
 </script>
 

@@ -1,4 +1,4 @@
-// cover some element-ui styles
+// 覆盖element-ui样式
 
 .el-breadcrumb__inner,
 .el-breadcrumb__inner a {
@@ -14,8 +14,7 @@
 .el-upload__input {
   display: none;
 }
- 
-// to fixed https://github.com/ElemeFE/element/issues/2461
+  
 .el-dialog {
   transform: none;
   left: 0;
@@ -23,7 +22,7 @@
   margin: 0 auto;
 }
 
-// refine element ui upload
+// 图片上传样式美化
 .upload-container {
   .el-upload {
     width: 100%; 
@@ -41,7 +40,7 @@
   }
 }
 
-// to fix el-date-picker css style
+// 修复el-date-picker css样式
 .el-range-separator {
   box-sizing: content-box;
 }

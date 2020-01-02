@@ -69,31 +69,31 @@
 <script>
 import comment from './comment'
 export default {
-  components: { comment },
-  data() {
-    return {
-      teamIntroduce: {
-        con: '团队介绍',
-        isLine: true,
-        ismore: true
-      },
-      performance: {
-        con: '业绩展示',
-        isLine: true,
-        ismore: true
-      },
-      dynamic: {
-        con: '团队动态',
-        isLine: true,
-        ismore: true
-      },
-      messageBoard: {
-        con: '留言',
-        isLine: true,
-        ismore: true
-      }
+    components: { comment },
+    data() {
+        return {
+            teamIntroduce: {
+                con: '团队介绍',
+                isLine: true,
+                ismore: true
+            },
+            performance: {
+                con: '业绩展示',
+                isLine: true,
+                ismore: true
+            },
+            dynamic: {
+                con: '团队动态',
+                isLine: true,
+                ismore: true
+            },
+            messageBoard: {
+                con: '留言',
+                isLine: true,
+                ismore: true
+            }
+        }
     }
-  }
 }
 </script>
 

@@ -1,42 +1,44 @@
 <template>
   <!-- 展示区域 -->
   <div class="border show-box">
-    <div v-for="(item,index) in compListResult.Rows" v-if="compListResult && compListResult.Rows" :key="index" class="show-item">
-      <div class="left flcc" @click="goto">
-        <img src="../../../../assets/imgs/floor/ewm.jpg" alt="">
-      </div>
-      <div class="con">
-        <div class="top">
-          <span class="address">
-            [{{ item.AreaName }}]
-          </span>
-          <span class="gs">
-            {{ item.CompDetpName }}
-          </span>
+    <template v-if="compListResult && compListResult.Rows">
+      <div v-for="(item,index) in compListResult.Rows" :key="index" class="show-item">
+        <div class="left flcc" @click="goto">
+          <img src="../../../../assets/imgs/floor/ewm.jpg" alt="">
         </div>
-        <div class="middle elps">
-          {{ item.CompContent }}
-        </div>
-        <div class="bottom">
-          <div class="btn-tap">
-            <el-tag v-for="(ele,k) in item.CompType" :key="k" type="success" size="mini">{{ ele.CompTypeName }}</el-tag>
+        <div class="con">
+          <div class="top">
+            <span class="address">
+              [{{ item.AreaName }}]
+            </span>
+            <span class="gs">
+              {{ item.CompDetpName }}
+            </span>
           </div>
-          <div class="describe">
-            团队人数：101人以上 &nbsp; 成功案例：1例
+          <div class="middle elps">
+            {{ item.CompContent }}
+          </div>
+          <div class="bottom">
+            <div class="btn-tap">
+              <el-tag v-for="(ele,k) in item.CompType" :key="k" type="success" size="mini">{{ ele.CompTypeName }}</el-tag>
+            </div>
+            <div class="describe">
+              团队人数：101人以上 &nbsp; 成功案例：1例
+            </div>
+          </div>
+        </div>
+        <div class="right t-b">
+          <div>
+            <el-button type="success" size="mini" @click="hire(item.ID)">雇佣他</el-button>
+          </div>
+          <div class="ic-show">
+            <span><svg-icon icon-class="eye-show" /></span> {{ item.BrowseVolume }} 次
           </div>
         </div>
       </div>
-      <div class="right t-b">
-        <div>
-          <el-button type="success" size="mini" @click="hire(item.ID)">雇佣他</el-button>
-        </div>
-        <div class="ic-show">
-          <span><svg-icon icon-class="eye-show" /></span> {{ item.BrowseVolume }} 次
-        </div>
-      </div>
-    </div>
-    <div class="page-box"> 
-      <pagination :total='compListResult.Total' @changePage="getPage"/>
+    </template>
+    <div class="page-box">
+      <pagination :total="compListResult.Total" @changePage="getPage" />
     </div>
   </div>
 </template>
@@ -44,28 +46,28 @@
 <script>
 import pagination from '@/components/pagination'
 export default {
-  components: { pagination },
-  props: {
-    compListResult: {
-      type: Object,
-      default: function() {
-        return { total: 0, Rows: [] }
-      }
-    }
-  },
-  methods: {
-    hire(id) {
-      this.$message.success(id)
+    components: { pagination },
+    props: {
+        compListResult: {
+            type: Object,
+            default: function() {
+                return { total: 0, Rows: [] }
+            }
+        }
     },
-    getPage(e){
-      this.$emit('changePage',e)
-    },
-    goto() {
-      this.$router.push({
-        path: 'info'
-      })
+    methods: {
+        hire(id) {
+            this.$message.success(id)
+        },
+        getPage(e) {
+            this.$emit('changePage', e)
+        },
+        goto() {
+            this.$router.push({
+                path: 'info'
+            })
+        }
     }
-  }
 }
 </script>
 

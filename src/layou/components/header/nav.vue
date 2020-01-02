@@ -37,65 +37,64 @@ import Item from './item'
 import AppLink from './link'
 
 export default {
-  name: 'NavItem',
-  components: { Item, AppLink },
-  props: {
-    // route object
-    item: {
-      type: Object,
-      required: true
+    name: 'NavItem',
+    components: { Item, AppLink },
+    props: {
+        item: {
+            type: Object,
+            required: true
+        },
+        isNest: {
+            type: Boolean,
+            default: false
+        },
+        basePath: {
+            type: String,
+            default: ''
+        }
     },
-    isNest: {
-      type: Boolean,
-      default: false
-    },
-    basePath: {
-      type: String,
-      default: ''
-    }
-  },
-  data() {
+    data() {
     // To fix https://github.com/PanJiaChen/vue-admin-template/issues/237
     // TODO: refactor with render function
-    this.onlyOneChild = null
-    return {}
-  },
-  methods: {
-    hasOneShowingChild(children = [], parent) {
-      const showingChildren = children.filter(item => {
-        // 隐藏的不存，不隐藏的存储
-        if (item.hidden) {
-          return false
-        } else {
-          // 临时节点存储
-          this.onlyOneChild = item
-          return true
-        }
-      })
-
-      // 处理隐藏路由后，返回的数组长度，如果为1则直接显示路由，如果为多个则执行带有下拉的渲染列表
-      if (showingChildren.length === 1) {
-        return true
-      }
-
-      // 如果没有要显示的子路由器，则显示父路由器，执行单个渲染
-      if (showingChildren.length === 0) {
-        this.onlyOneChild = { ... parent, path: '', noShowingChildren: true }
-        return true
-      }
-      //
-      return false
+        this.onlyOneChild = null
+        return {}
     },
-    resolvePath(routePath) {
-      if (isExternal(routePath)) {
-        return routePath
-      }
-      if (isExternal(this.basePath)) {
-        return this.basePath
-      }
-      return path.resolve(this.basePath, routePath)
+    methods: {
+        hasOneShowingChild(children = [], parent) {
+            const showingChildren = children.filter(item => {
+                // 隐藏的不存，不隐藏的存储
+                if (item.hidden) {
+                    return false
+                } else {
+                    // 临时节点存储
+                    this.onlyOneChild = item
+                    return true
+                }
+            })
+
+            // 处理隐藏路由后，返回的数组长度，如果为1则直接显示路由，如果为多个则执行带有下拉的渲染列表
+            if (showingChildren.length === 1) {
+                return true
+            }
+
+            // 如果没有要显示的子路由器，则显示父路由器，执行单个渲染
+            if (showingChildren.length === 0) {
+                this.onlyOneChild = { ... parent, path: '', noShowingChildren: true }
+                return true
+            }
+            //
+            return false
+        },
+        resolvePath(routePath) {
+            if (isExternal(routePath)) {
+                return routePath
+            }
+            if (isExternal(this.basePath)) {
+                return this.basePath
+            }
+            return path.resolve(this.basePath, routePath)
+        }
     }
-  }
 }
 </script>
 <style lang="scss" scoped>

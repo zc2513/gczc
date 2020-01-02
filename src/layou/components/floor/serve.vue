@@ -15,32 +15,32 @@
 
 <script>
 export default {
-  data() {
-    return {
-      list: [
-        {
-          src: 'gjrz',
-          title: '资质认证',
-          describe: '企业100%实名审核认证'
-        },
-        {
-          src: 'gjrz',
-          title: '信息安全',
-          describe: '保密性、完整性、可用性、可控性'
-        },
-        {
-          src: 'gjrz',
-          title: '一对一服务',
-          describe: '明确把握每一位顾客的需求'
-        },
-        {
-          src: 'gjrz',
-          title: '全程无忧',
-          describe: '服务出问题客服全程跟踪'
+    data() {
+        return {
+            list: [
+                {
+                    src: 'gjrz',
+                    title: '资质认证',
+                    describe: '企业100%实名审核认证'
+                },
+                {
+                    src: 'gjrz',
+                    title: '信息安全',
+                    describe: '保密性、完整性、可用性、可控性'
+                },
+                {
+                    src: 'gjrz',
+                    title: '一对一服务',
+                    describe: '明确把握每一位顾客的需求'
+                },
+                {
+                    src: 'gjrz',
+                    title: '全程无忧',
+                    describe: '服务出问题客服全程跟踪'
+                }
+            ]
         }
-      ]
     }
-  }
 }
 </script>
 

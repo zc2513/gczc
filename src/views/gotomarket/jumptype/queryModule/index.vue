@@ -15,9 +15,9 @@
       <div class="layout" style="margin-bottom:20px;">
         <div class="left">
           <!-- 筛选插件1 -->
-          <search-bar :team-type="pageData.TeamType" @teamChange='getselet' />
+          <search-bar :team-type="pageData.TeamType" @teamChange="getselet" />
           <!-- 展示列表 -->
-          <show-list @changePage='getPage' :comp-list-result="pageData.CompListResult" />
+          <show-list :comp-list-result="pageData.CompListResult" @changePage="getPage" />
         </div>
         <div class="right">
           <!-- 广告位 -->
@@ -37,77 +37,76 @@ import qy from './qy'
 import team from './team'
 import { GetSubstation } from '@/api/gotomarket/queryModule'
 export default {
-  components: { navSwiper, searchBar, showList, qy, team },
-  data() {
-    return { 
-      pageData: {},
-      reqData:{
-        OP:'teamList',
-        page_size: 10,
-        page_index: 1,
-        famousNumbers: 6,
-        groupNumbers: 10
-      },
-      page_size:10,
-      type:null,
-      OP:'teamList',
-      searchData:null
+    components: { navSwiper, searchBar, showList, qy, team },
+    data() {
+        return {
+            pageData: {},
+            reqData: {
+                OP: 'teamList',
+                page_size: 10,
+                page_index: 1,
+                famousNumbers: 6,
+                groupNumbers: 10
+            },
+            page_size: 10,
+            type: null,
+            OP: 'teamList',
+            searchData: null
+        }
+    },
+    created() {
+        this.init()
+    },
+    methods: {
+        init(index, type) {
+            const data = {
+                OP: this.OP,
+                page_size: this.page_size,
+                page_index: index || 1,
+                famousNumbers: 6,
+                groupNumbers: 10,
+                type: this.type,
+                searchData: this.searchData
+            }
+            GetSubstation(data).then(res => {
+                if (type === 'search') {
+                    this.pageData.CompListResult = res.CompListResult
+                } else {
+                    this.pageData = res
+                }
+            })
+        },
+        getPage({ type, size }) { // 分页处理
+            if (type === 'page') {
+                this.search(size)
+            }
+            if (type === 'strip') {
+                this.page_size = size
+                this.search()
+            }
+        },
+        getselet(e) {
+            this.type = e.type
+            this.searchData = e.searchData
+            if (e.type || e.searchData) {
+                this.OP = 'PlaList'
+                this.init(1, 'search')
+            } else {
+                this.OP = 'teamList'
+                this.init()
+            }
+        },
+        search(size = 1) {
+            if (this.OP === 'PlaList') {
+                this.init(size, 'search')
+            } else {
+                this.init(size)
+            }
+        },
+        goBack() {
+            this.$router.go(-1)
+        }
     }
-  },
-  created() {
-    this.init()
-  },
-  methods: {
-    init(index,type) {
-      let data = {
-        OP:this.OP,
-        page_size: this.page_size,
-        page_index: index || 1,
-        famousNumbers: 6,
-        groupNumbers: 10,
-        type:this.type,
-        searchData:this.searchData,
-      }
-      GetSubstation(data).then(res => { 
-        if(type == 'search'){
-          this.pageData.CompListResult = res.CompListResult
-        }else{
-          this.pageData =  res
-        } 
-      })
-    },
-    getPage({type,size}){//分页处理 
-      if(type == 'page'){
-        this.search(size)  
-      }
-      if(type == 'strip'){
-        this.page_size = size
-        this.search()
-      }
-      
-    },
-    getselet(e){ 
-      this.type = e.type
-      this.searchData = e.searchData
-      if(e.type || e.searchData){ 
-        this.OP = 'PlaList'
-        this.init(1,'search')
-      }else{
-          this.OP = 'teamList'
-          this.init() 
-      }
-    },
-    search(size = 1){
-      if(this.OP == 'PlaList'){
-        this.init(size,'search') 
-      }else{
-        this.init(size) 
-      }
-    },
-    goBack() {
-      this.$router.go(-1)
-    }
-  }
 }
 </script>
 

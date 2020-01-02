@@ -26,21 +26,22 @@
 <script>
 import { getfooter } from '@/api/public/footer'
 export default {
-  props: {
-    links: {
-      type: Object
+    props: {
+        // eslint-disable-next-line vue/require-default-prop
+        links: {
+            type: Object
+        }
+    },
+    data() {
+        return {
+            FooterInfos: {}
+        }
+    },
+    created() {
+        getfooter().then(res => {
+            this.FooterInfos = res.FooterInfo
+        })
     }
-  },
-  data() {
-    return {
-      FooterInfos: {}
-    }
-  },
-  created() {
-    getfooter().then(res => {
-      this.FooterInfos = res.FooterInfo
-    })
-  }
 }
 </script>
 

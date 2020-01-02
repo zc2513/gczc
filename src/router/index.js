@@ -25,131 +25,131 @@ import Layou from '@/layou'
  */
 
 export const constantRoutes = [
-  {
-    path: '/',
-    redirect: '/home/index',
-    hidden: true
-  },
-  {
-    path: '/login',
-    component: () => import('@/views/login/index'),
-    hidden: true
-  },
-
-  {
-    path: '/404',
-    component: () => import('@/views/404'),
-    hidden: true
-  },
-  {
-    path: '/home',
-    component: Layou,
-    children: [
-      {
-        path: 'index',
-        name: 'home',
-        component: () => import('@/views/home/index'),
-        meta: { title: '首页', icon: 'form' }
-      }
-    ]
-  },
-  {
-    path: '/gotomarket',
-    component: Layou,
-    redirect: '/gotomarket/index',
-    name: 'gotomark',
-    meta: { title: '工程赶集', icon: 'form' },
-    children: [
-      {
-        path: 'index',
-        name: 'gotomarket',
-        component: () => import('@/views/gotomarket/index'),
-        meta: { title: '工程赶集', icon: 'form' }
-      },
-      {
-        path: 'jump',
-        name: 'queryModule',
-        component: () => import('@/views/gotomarket/jumptype/queryModule/index'),
+    {
+        path: '/',
+        redirect: '/home/index',
         hidden: true
-      },
-      {
-        path: 'info',
-        name: 'info',
-        component: () => import('@/views/gotomarket/jumptype/infos/index'),
-        meta: { title: '详情页面', icon: 'form' },
+    },
+    {
+        path: '/login',
+        component: () => import('@/views/login/index'),
         hidden: true
-      }
-    ]
-  },
-  {
-    path: '/crowdsourcing',
-    component: Layou,
-    children: [
-      {
-        path: 'index',
-        name: 'crowdsourcing',
-        component: () => import('@/views/crowdsourcing/index'),
-        meta: { title: '众包工厂', icon: 'form' }
-      }
-    ]
-  },
-  {
-    path: '/oncall',
-    component: Layou,
-    children: [
-      {
-        path: 'index',
-        name: 'oncall',
-        component: () => import('@/views/oncall/index'),
-        meta: { title: '电招大厅', icon: 'form' }
-      }
-    ]
-  },
-  {
-    path: '/entrust',
-    component: Layou,
-    children: [
-      {
-        path: 'index',
-        name: 'entrust',
-        component: () => import('@/views/entrust/index'),
-        meta: { title: '一站委托', icon: 'form' }
-      }
-    ]
-  },
-  {
-    path: '/academy',
-    component: Layou,
-    children: [
-      {
-        path: 'index',
-        name: 'academy',
-        component: () => import('@/views/academy/index'),
-        meta: { title: '工程学院', icon: 'form' }
-      }
-    ]
-  },
-  {
-    path: '/test',
-    component: () => import('@/components/pagination'),
-    meta: { title: '组件测试', icon: 'form' }
-  },
+    },
 
-  { path: '*', redirect: '/404', hidden: true }
+    {
+        path: '/404',
+        component: () => import('@/views/404'),
+        hidden: true
+    },
+    {
+        path: '/home',
+        component: Layou,
+        children: [
+            {
+                path: 'index',
+                name: 'home',
+                component: () => import('@/views/home/index'),
+                meta: { title: '首页', icon: 'form' }
+            }
+        ]
+    },
+    {
+        path: '/gotomarket',
+        component: Layou,
+        redirect: '/gotomarket/index',
+        name: 'gotomark',
+        meta: { title: '工程赶集', icon: 'form' },
+        children: [
+            {
+                path: 'index',
+                name: 'gotomarket',
+                component: () => import('@/views/gotomarket/index'),
+                meta: { title: '工程赶集', icon: 'form' }
+            },
+            {
+                path: 'jump',
+                name: 'queryModule',
+                component: () => import('@/views/gotomarket/jumptype/queryModule/index'),
+                hidden: true
+            },
+            {
+                path: 'info',
+                name: 'info',
+                component: () => import('@/views/gotomarket/jumptype/infos/index'),
+                meta: { title: '详情页面', icon: 'form' },
+                hidden: true
+            }
+        ]
+    },
+    {
+        path: '/crowdsourcing',
+        component: Layou,
+        children: [
+            {
+                path: 'index',
+                name: 'crowdsourcing',
+                component: () => import('@/views/crowdsourcing/index'),
+                meta: { title: '众包工厂', icon: 'form' }
+            }
+        ]
+    },
+    {
+        path: '/oncall',
+        component: Layou,
+        children: [
+            {
+                path: 'index',
+                name: 'oncall',
+                component: () => import('@/views/oncall/index'),
+                meta: { title: '电招大厅', icon: 'form' }
+            }
+        ]
+    },
+    {
+        path: '/entrust',
+        component: Layou,
+        children: [
+            {
+                path: 'index',
+                name: 'entrust',
+                component: () => import('@/views/entrust/index'),
+                meta: { title: '一站委托', icon: 'form' }
+            }
+        ]
+    },
+    {
+        path: '/academy',
+        component: Layou,
+        children: [
+            {
+                path: 'index',
+                name: 'academy',
+                component: () => import('@/views/academy/index'),
+                meta: { title: '工程学院', icon: 'form' }
+            }
+        ]
+    },
+    {
+        path: '/test',
+        component: () => import('@/components/pagination'),
+        meta: { title: '组件测试', icon: 'form' }
+    },
+
+    { path: '*', redirect: '/404', hidden: true }
 ]
 
 const createRouter = () => new Router({
-  // mode: 'history', // 需要后端开启服务支持
-  scrollBehavior: () => ({ y: 0 }),
-  routes: constantRoutes
+    // mode: 'history', // 需要后端开启服务支持
+    scrollBehavior: () => ({ y: 0 }),
+    routes: constantRoutes
 })
 
 const router = createRouter()
 
 // Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
 export function resetRouter() {
-  const newRouter = createRouter()
-  router.matcher = newRouter.matcher // reset router
+    const newRouter = createRouter()
+    router.matcher = newRouter.matcher // reset router
 }
 
 export default router

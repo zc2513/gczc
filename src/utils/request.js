@@ -1,32 +1,32 @@
 import axios from 'axios'
-import { MessageBox, Message } from 'element-ui'
+import { Message } from 'element-ui'
 import store from '@/store'
 import { getToken } from '@/utils/auth'
 
 const service = axios.create({
-  baseURL: process.env.VUE_APP_BASE_API, // url = base url + request url
-  // withCredentials: true, // 跨域请求是否发送coolkie
-  headers: { 'Content-Type': 'application/json;charset=UTF-8' },
-  timeout: 5000
+    baseURL: process.env.VUE_APP_BASE_API, // url = base url + request url
+    // withCredentials: true, // 跨域请求是否发送coolkie
+    headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+    timeout: 5000
 })
 service.interceptors.request.use(
-  config => {
-    if (store.getters.token) {
-      config.headers['X-Token'] = getToken()
-    }
-    return config
-  },
-  error => {
+    config => {
+        if (store.getters.token) {
+            config.headers['X-Token'] = getToken()
+        }
+        return config
+    },
+    error => {
     // 请求错误
-    console.log(error)
-    return Promise.reject(error)
-  }
+        console.log(error)
+        return Promise.reject(error)
+    }
 )
 
 service.interceptors.response.use(
-  response => {
-    const res = response.data
-    return res
+    response => {
+        const res = response.data
+        return res
     /* //全局处理---暂时无用
     if (res.code !== 200) {
       Message({
@@ -50,60 +50,60 @@ service.interceptors.response.use(
     } else {
       return res
     } */
-  },
-  error => {
-    console.log('错误信息' + error) // for debug
-    Message({
-      message: error.message,
-      type: 'error',
-      duration: 5 * 1000
-    })
-    return Promise.reject(error)
-  }
+    },
+    error => {
+        console.log('错误信息' + error) // for debug
+        Message({
+            message: error.message,
+            type: 'error',
+            duration: 5 * 1000
+        })
+        return Promise.reject(error)
+    }
 )
 
 export default service
 
 // 提示信息拦截
-const showStatus = (code) => {
-  let message = ''
-  switch (code) {
-    case 400:
-      message = '请求错误(400)'
-      break
-    case 401:
-      message = '未授权，请重新登录(401)'
-      break
-    case 403:
-      message = '拒绝访问(403)'
-      break
-    case 404:
-      message = '请求出错(404)'
-      break
-    case 408:
-      message = '请求超时(408)'
-      break
-    case 500:
-      message = '服务器错误(500)'
-      break
-    case 501:
-      message = '服务未实现(501)'
-      break
-    case 502:
-      message = '网络错误(502)'
-      break
-    case 503:
-      message = '服务不可用(503)'
-      break
-    case 504:
-      message = '网络超时(504)'
-      break
-    case 505:
-      message = 'HTTP版本不受支持(505)'
-      break
-    default:
-      message = `连接出错(${code})!`
-  }
-  return `${message}，请检查网络或联系管理员！`
-}
+// const showStatus = (code) => {
+//     let message = ''
+//     switch (code) {
+//         case 400:
+//             message = '请求错误(400)'
+//             break
+//         case 401:
+//             message = '未授权，请重新登录(401)'
+//             break
+//         case 403:
+//             message = '拒绝访问(403)'
+//             break
+//         case 404:
+//             message = '请求出错(404)'
+//             break
+//         case 408:
+//             message = '请求超时(408)'
+//             break
+//         case 500:
+//             message = '服务器错误(500)'
+//             break
+//         case 501:
+//             message = '服务未实现(501)'
+//             break
+//         case 502:
+//             message = '网络错误(502)'
+//             break
+//         case 503:
+//             message = '服务不可用(503)'
+//             break
+//         case 504:
+//             message = '网络超时(504)'
+//             break
+//         case 505:
+//             message = 'HTTP版本不受支持(505)'
+//             break
+//         default:
+//             message = `连接出错(${code})!`
+//     }
+//     return `${message}，请检查网络或联系管理员！`
+// }
 

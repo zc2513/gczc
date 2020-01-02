@@ -20,12 +20,12 @@
 import companyInfo from './companyInfos'
 import teamsl from './teamsl'
 export default {
-  components: { companyInfo, teamsl },
-  methods: {
-    goBack() {
-      this.$router.go(-1)
+    components: { companyInfo, teamsl },
+    methods: {
+        goBack() {
+            this.$router.go(-1)
+        }
     }
-  }
 }
 </script>
 

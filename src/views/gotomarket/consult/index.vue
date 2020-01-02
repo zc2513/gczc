@@ -14,10 +14,10 @@
 import tabs from './tbas'
 import zxSwiper from './zxSwiper'
 export default {
-  components: {
-    tabs,
-    zxSwiper
-  }
+    components: {
+        tabs,
+        zxSwiper
+    }
 }
 </script>
 

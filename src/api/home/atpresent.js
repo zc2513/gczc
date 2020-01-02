@@ -10,11 +10,11 @@ import qs from 'qs'
  */
 
 export function getSwiper(data) {
-  return request({
-    url: '/table/list',
-    method: 'get',
-    data: qs.stringify(data)
-  })
+    return request({
+        url: '/table/list',
+        method: 'get',
+        data: qs.stringify(data)
+    })
 }
 
 // export function getSwiper() {
@@ -28,9 +28,9 @@ export function getSwiper(data) {
  * @description 获取项目模块信息
 */
 export function getProModule(data) {
-  return request({
-    url: '/table/list',
-    method: 'get',
-    data
-  })
+    return request({
+        url: '/table/list',
+        method: 'get',
+        data
+    })
 }

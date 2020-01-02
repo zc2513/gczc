@@ -15,97 +15,97 @@
 
 <script>
 export default {
-  name: 'JumpType',
-  data() {
-    return {
-      list: [
-        { name: '找企业', src: 1 },
-        { name: '找团队', src: 2 },
-        { name: '找业绩', src: 3 },
-        {
-          data: [
-            {
-              name: '名字一',
-              src: 4
-            },
-            {
-              name: '名字二',
-              src: 5
-            }
-          ]
-        },
-        {
-          data: [
-            {
-              name: '名字一',
-              src: 6
-            },
-            {
-              name: '名字二',
-              src: 7
-            }
-          ]
-        },
-        {
-          data: [
-            {
-              name: '名字一',
-              src: 8
+    name: 'JumpType',
+    data() {
+        return {
+            list: [
+                { name: '找企业', src: 1 },
+                { name: '找团队', src: 2 },
+                { name: '找业绩', src: 3 },
+                {
+                    data: [
+                        {
+                            name: '名字一',
+                            src: 4
+                        },
+                        {
+                            name: '名字二',
+                            src: 5
+                        }
+                    ]
+                },
+                {
+                    data: [
+                        {
+                            name: '名字一',
+                            src: 6
+                        },
+                        {
+                            name: '名字二',
+                            src: 7
+                        }
+                    ]
+                },
+                {
+                    data: [
+                        {
+                            name: '名字一',
+                            src: 8
 
-            },
-            {
-              name: '名字二',
-              src: 9
-            }
-          ]
-        },
-        {
-          data: [
-            {
-              name: '名字一',
-              src: 10
-            },
-            {
-              name: '名字二',
-              src: 11
-            }
-          ]
-        },
-        {
-          data: [
-            {
-              name: '名字一',
-              src: 12
-            },
-            {
-              name: '名字二',
-              src: 13
-            }
-          ]
-        },
-        {
-          data: [
-            {
-              name: '名字一',
-              src: 14
-            },
-            {
-              name: '名字二',
-              src: 15
-            }
-          ]
+                        },
+                        {
+                            name: '名字二',
+                            src: 9
+                        }
+                    ]
+                },
+                {
+                    data: [
+                        {
+                            name: '名字一',
+                            src: 10
+                        },
+                        {
+                            name: '名字二',
+                            src: 11
+                        }
+                    ]
+                },
+                {
+                    data: [
+                        {
+                            name: '名字一',
+                            src: 12
+                        },
+                        {
+                            name: '名字二',
+                            src: 13
+                        }
+                    ]
+                },
+                {
+                    data: [
+                        {
+                            name: '名字一',
+                            src: 14
+                        },
+                        {
+                            name: '名字二',
+                            src: 15
+                        }
+                    ]
+                }
+
+            ]
         }
-
-      ]
+    },
+    methods: {
+        goto() {
+            this.$router.push({
+                path: 'jump'
+            })
+        }
     }
-  },
-  methods: {
-    goto() {
-      this.$router.push({
-        path: 'jump'
-      })
-    }
-  }
 }
 </script>
 

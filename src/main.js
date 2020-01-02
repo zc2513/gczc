@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-import 'normalize.css/normalize.css' // A modern alternative to CSS resets
+import 'normalize.css/normalize.css' // CSS resets
 
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
@@ -12,24 +12,24 @@ import store from './store'
 import router from './router'
 
 import '@/icons' // icon
-import '@/permission' // permission control
-import '@/utils/components'
+import '@/permission' // 权限
+import '@/utils/components' // 全局组件注册
 
 import scroll from 'vue-seamless-scroll'
 Vue.use(scroll)
 
-import { mockXHR } from '../mock'
-if (process.env.NODE_ENV === 'production') {
-  mockXHR()
-}
+// import { mockXHR } from '../mock'
+// if (process.env.NODE_ENV === 'development') {
+//     mockXHR()
+// }
 
 Vue.use(ElementUI)
 
 Vue.config.productionTip = false
 
 new Vue({
-  el: '#app',
-  router,
-  store,
-  render: h => h(App)
+    el: '#app',
+    router,
+    store,
+    render: h => h(App)
 })

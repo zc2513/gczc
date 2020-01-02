@@ -10,12 +10,12 @@
 
 <script>
 export default {
-  name: 'PcMain',
-  computed: {
-    key() {
-      return this.$route.path
+    name: 'PcMain',
+    computed: {
+        key() {
+            return this.$route.path
+        }
     }
-  }
 }
 </script>
 

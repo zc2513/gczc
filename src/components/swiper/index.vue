@@ -32,8 +32,8 @@
 <script>
 import props from './props'
 export default {
-  name: 'NavSwiper',
-  props
+    name: 'NavSwiper',
+    props
 }
 </script>
 <style lang="scss" scoped>

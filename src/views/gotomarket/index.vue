@@ -43,43 +43,43 @@ import enterpriseTeam from './enterpriseTeam'
 import consult from './consult'
 import partner from '@/views/common/partner'
 export default {
-  components: {
-    navSwiper,
-    loginBar,
-    jumpType,
-    verticalSwiper,
-    enterpriseTeam,
-    enterpriseList,
-    consult,
-    partner
-  },
-  data() {
-    return {
-      swiperData: {// 轮播图数据
-        list: [1, 2],
-        pubSlotCls: {// 公用部分定位及大小
-          width: '245px',
-          height: '280px',
-          top: '40px',
-          right: '20%',
-          backgroundColor: '#fafce6'
+    components: {
+        navSwiper,
+        loginBar,
+        jumpType,
+        verticalSwiper,
+        enterpriseTeam,
+        enterpriseList,
+        consult,
+        partner
+    },
+    data() {
+        return {
+            swiperData: {// 轮播图数据
+                list: [1, 2],
+                pubSlotCls: {// 公用部分定位及大小
+                    width: '245px',
+                    height: '280px',
+                    top: '40px',
+                    right: '20%',
+                    backgroundColor: '#fafce6'
+                }
+            },
+            radio1: '上海',
+            checkIn: {
+                con: '入住企业',
+                describe: '最新入驻企业292家'
+            },
+            ESTPTeam: {
+                con: '创业团队',
+                describe: '最新入驻创业团队125家'
+            },
+            advisory: {
+                con: '资讯中心',
+                describe: ''
+            }
         }
-      },
-      radio1: '上海',
-      checkIn: {
-        con: '入住企业',
-        describe: '最新入驻企业292家'
-      },
-      ESTPTeam: {
-        con: '创业团队',
-        describe: '最新入驻创业团队125家'
-      },
-      advisory: {
-        con: '资讯中心',
-        describe: ''
-      }
     }
-  }
 }
 </script>
 

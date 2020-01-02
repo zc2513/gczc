@@ -16,9 +16,9 @@ import serve from './serve'
 import about from './about'
 import copyright from './copyright'
 export default {
-  components: {
-    serve, about, copyright
-  }
+    components: {
+        serve, about, copyright
+    }
 }
 </script>
 

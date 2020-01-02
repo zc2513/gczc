@@ -63,52 +63,52 @@ import navItem from '@/layou/components/header/nav'
 import variables from '@/styles/variables.scss'
 import floor from './components/floor'
 export default {
-  name: 'Layou',
-  components: {
-    pcMain,
-    hder,
-    logoSeach,
-    navItem,
-    floor
-  },
-  data() {
-    return {
-      navBarFixed: false
-    }
-  },
-  computed: {
-    routes() {
-      return this.$router.options.routes
+    name: 'Layou',
+    components: {
+        pcMain,
+        hder,
+        logoSeach,
+        navItem,
+        floor
     },
-    activeMenu() {
-      const route = this.$route
-      const { meta, path } = route
-      if (meta.activeMenu) {
-        return meta.activeMenu
-      }
-      console.log(path)
-      return path
+    data() {
+        return {
+            navBarFixed: false
+        }
     },
-    variables() {
-      return variables
-    }
-  },
-  mounted() {
-    window.addEventListener('scroll', this.watchScroll)
-  },
-  methods: {
-    watchScroll() {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-      if (scrollTop > 170) {
-        this.navBarFixed = true
-      } else {
-        this.navBarFixed = false
-      }
+    computed: {
+        routes() {
+            return this.$router.options.routes
+        },
+        activeMenu() {
+            const route = this.$route
+            const { meta, path } = route
+            if (meta.activeMenu) {
+                return meta.activeMenu
+            }
+            console.log(path)
+            return path
+        },
+        variables() {
+            return variables
+        }
     },
-    save(e) {
-      console.log(e)
+    mounted() {
+        window.addEventListener('scroll', this.watchScroll)
+    },
+    methods: {
+        watchScroll() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+            if (scrollTop > 170) {
+                this.navBarFixed = true
+            } else {
+                this.navBarFixed = false
+            }
+        },
+        save(e) {
+            console.log(e)
+        }
     }
-  }
 }
 </script>
 

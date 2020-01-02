@@ -4,7 +4,7 @@
       <span>优秀企业推荐</span>
     </div>
     <div v-if="TeamRecList&&TeamRecList.Rows" class="list">
-      <div v-for="(item,index) in TeamRecList.Rows" @click="skip(item.ID)" :key="index">
+      <div v-for="(item,index) in TeamRecList.Rows" :key="index" @click="skip(item.ID)">
         <div class="img-box flcc">
 
           <img v-if="item.logo" :src="item.logo" alt="">
@@ -21,12 +21,13 @@
 <script>
 import skip from './mixin'
 export default {
-  props: {
-    TeamRecList:{
-      type:Object
+    mixins: [skip],
+    props: {
+        // eslint-disable-next-line vue/require-default-prop
+        teamRecList: {
+            type: Object
+        }
     }
-  },
-  mixins:[skip]
 }
 </script>
 

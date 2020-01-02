@@ -82,17 +82,17 @@
 
 <script>
 export default {
-  data() {
-    return {
-      enterprise: {
-        con: '优秀企业推荐'
-      },
-      team: {
-        con: '优秀团队推荐'
-      },
-      list: [1, 2, 3]
+    data() {
+        return {
+            enterprise: {
+                con: '优秀企业推荐'
+            },
+            team: {
+                con: '优秀团队推荐'
+            },
+            list: [1, 2, 3]
+        }
     }
-  }
 }
 </script>
 

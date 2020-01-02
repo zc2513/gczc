@@ -26,23 +26,23 @@
 
 <script>
 export default {
-  data() {
-    return {
-      isShow: false,
-      nowIndex: null
-    }
-  },
-  methods: {
-    save() {
-      this.$message.success('点击事件处理')
+    data() {
+        return {
+            isShow: false,
+            nowIndex: null
+        }
     },
-    hoverin(index) {
-      this.nowIndex = index
-    },
-    hoverout() {
-      this.nowIndex = null
+    methods: {
+        save() {
+            this.$message.success('点击事件处理')
+        },
+        hoverin(index) {
+            this.nowIndex = index
+        },
+        hoverout() {
+            this.nowIndex = null
+        }
     }
-  }
 }
 </script>
 
