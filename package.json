@@ -5,8 +5,8 @@
   "author": "huachun",
   "scripts": {
     "dev": "vue-cli-service serve",
-    "build:prod": "vue-cli-service build",
-    "build:stage": "vue-cli-service build --mode staging",
+    "build:prod": "vue-cli-service build --mode development",
+    "build:stage": "vue-cli-service build --mode staging --dest sdist",
     "preview": "node build/index.js --preview",
     "lint": "eslint --ext .js,.vue src",
     "test:unit": "jest --clearCache && vue-cli-service test:unit",
