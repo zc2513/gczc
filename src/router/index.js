@@ -30,7 +30,7 @@ import Layou from '@/layou'
 export const constantRoutes = [
     {
         path: '/',
-        redirect: '/home/index',
+        redirect: '/gotomarket',
         hidden: true
     },
     {
@@ -55,7 +55,7 @@ export const constantRoutes = [
                 path: 'index',
                 name: 'home',
                 component: () => import('@/views/home/index'),
-                meta: { title: '首页内容', icon: 'form' },
+                meta: { title: '首页', icon: 'form', activeMenu: '/home' },
                 hidden: true
             }
         ]
@@ -77,13 +77,14 @@ export const constantRoutes = [
                 path: 'jump',
                 name: 'queryModule',
                 component: () => import('@/views/gotomarket/jumptype/queryModule/index'),
+                meta: { activeMenu: '/gotomarket/index' },
                 hidden: true
             },
             {
                 path: 'info',
                 name: 'info',
                 component: () => import('@/views/gotomarket/jumptype/infos/index'),
-                meta: { title: '详情页面', icon: 'form' },
+                meta: { title: '详情页面', icon: 'form', activeMenu: '/gotomarket/index' },
                 hidden: true
             }
         ]
@@ -129,9 +130,10 @@ export const constantRoutes = [
         component: Layou,
         children: [
             {
-                path: 'index',
+                path: 'http://www.cebpubservice.com/ctpsp_policylaw/thirdparty/hczhongchuang/policies_index.jsp',
+                // path: 'index',
                 name: 'academy',
-                component: () => import('@/views/academy/index'),
+                // component: () => import('@/views/academy/index'),
                 meta: { title: '工程学院', icon: 'form' }
             }
         ]
@@ -152,7 +154,7 @@ const createRouter = () => new Router({
 })
 
 const router = createRouter()
- 
+
 export function resetRouter() {
     const newRouter = createRouter()
     router.matcher = newRouter.matcher // reset router

@@ -6,10 +6,13 @@
 </template>
 
 <script>
+import { routReset } from '@/mixin/r.js'
 export default {
+    mixins: process.env.NODE_ENV === 'production' ? [routReset] : [],
     methods: {
         goto() {
-            location.href = '/Bim/Index'
+            // console.log(process.env.NODE_ENV)
+            // location.href = '/Bim/Index'
         }
     }
 }

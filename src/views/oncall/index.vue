@@ -5,8 +5,9 @@
 </template>
 
 <script>
+import { routReset } from '@/mixin/r.js'
 export default {
-
+    mixins: process.env.NODE_ENV === 'production' ? [routReset] : []
 }
 </script>
 
