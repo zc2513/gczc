@@ -5,7 +5,7 @@ export const routReset = {
     beforeRouteEnter(to, from, next) {
         switch (to.path) {
             case '/home/index' :
-                location.href = '/Bim/Index'
+                location.href = '/'
                 break
             case '/crowdsourcing/index' :
                 location.href = '/Bim/Index'
@@ -17,6 +17,6 @@ export const routReset = {
                 location.href = '/Entrust/Index'
                 break
         }
-        next()
+        next(false)
     }
 }
