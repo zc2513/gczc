@@ -5,7 +5,8 @@
   "author": "huachun",
   "scripts": {
     "dev": "vue-cli-service serve",
-    "build:prod": "vue-cli-service build --mode development", 
+    "build:prod": "vue-cli-service build", 
+    "build:outher": "vue-cli-service build --mode outher --no-clean", 
     "preview": "node build/index.js --preview",
     "lint": "eslint --ext .js,.vue src",
     "svgo": "svgo -f src/icons/svg --config=src/icons/svgo.yml"

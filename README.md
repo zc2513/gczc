@@ -16,8 +16,10 @@ npm run dev
 ## 发布
 
 ```bash 
-# 构建生产环境
-npm run build:prod
+# 构建生产环境--构建到当前跟目录下
+    npm run build:prod
+# 构建生产环境--构建到vs2015后台项目对应目录下（***需要在settings.js paths对象写入自己的git名称及自己项目的路径，否则不能使用）
+    npm run build:outher
 ```
 
 ## 其它
