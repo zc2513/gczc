@@ -1,5 +1,5 @@
 /**
- * @description 主要拦截处理在生产环境下，跳转到老版路由
+ * @description 处理当前项目与老版页面跳转
  * */
 export const routReset = {
     beforeRouteEnter(to, from, next) {
