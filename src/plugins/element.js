@@ -14,6 +14,7 @@ import {
     Cascader,
     Input,
     Pagination,
+    Tag,
     Message
 } from 'element-ui'
 
@@ -31,6 +32,7 @@ export default {
         Vue.use(Cascader)
         Vue.use(Input)
         Vue.use(Pagination)
+        Vue.use(Tag)
     }
 }
 
