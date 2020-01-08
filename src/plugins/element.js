@@ -1,4 +1,8 @@
 
+/**
+ * @description elemetn-ui 按需引入
+ * @location https://element.eleme.cn/2.13/#/zh-CN/component/quickstart
+*/
 import Vue from 'vue'
 import {
     Button,
@@ -13,6 +17,7 @@ import {
     Message
 } from 'element-ui'
 
+Vue.prototype.$ELEMENT = { size: 'small', zIndex: 1000 }
 Vue.prototype.$message = Message
 
 export default {
