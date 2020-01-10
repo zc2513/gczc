@@ -60,7 +60,7 @@ module.exports = {
     chainWebpack(config) {
         config.plugins.delete('preload')
         config.plugins.delete('prefetch')
-        config.plugin('workbox')
+        // config.plugin('workbox')
         // set svg-sprite-loader
         config.module
             .rule('svg')
