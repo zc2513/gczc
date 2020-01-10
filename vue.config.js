@@ -2,7 +2,7 @@
 const path = require('path')
 const execSync = require('child_process').execSync
 const defaultSettings = require('./src/settings.js')
-const gitName = execSync('git show -s --format=%cn').toString().trim()
+const gitName = process.env.ENV === 'other' ? execSync('git show -s --format=%cn').toString().trim() : null
 
 function resolve(dir) {
     return path.join(__dirname, dir)
@@ -11,8 +11,8 @@ function resolve(dir) {
 const name = defaultSettings.title || '云平台' // 页面标题
 const port = process.env.port || process.env.npm_config_port || 9527
 module.exports = {
-    publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
-    outputDir: process.env.NODE_ENV === 'production' ? defaultSettings.paths[gitName] : 'dist',
+    publicPath: process.env.ENV === 'other' ? './' : '/',
+    outputDir: process.env.ENV === 'other' ? defaultSettings.paths[gitName] : 'dist',
     assetsDir: 'static',
     lintOnSave: process.env.NODE_ENV === 'development',
     productionSourceMap: false,
