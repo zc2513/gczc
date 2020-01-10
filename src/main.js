@@ -17,6 +17,7 @@ import '@/permission' // 权限
 import '@/utils/components' // 全局组件注册
 
 import scroll from 'vue-seamless-scroll'
+import './registerServiceWorker'
 Vue.use(scroll)
 Vue.use(ElementUI)
 

@@ -2,7 +2,7 @@
 const path = require('path')
 const execSync = require('child_process').execSync
 const defaultSettings = require('./src/settings.js')
-const gitName = execSync('git show -s --format=%cn').toString().trim()
+const gitName = process.env.ENV === 'other' ? execSync('git show -s --format=%cn').toString().trim() : null
 
 function resolve(dir) {
     return path.join(__dirname, dir)
@@ -42,10 +42,25 @@ module.exports = {
             }
         }
     },
+    pwa: {
+        name: 'My App',
+        themeColor: '#4DBA87',
+        msTileColor: '#000000',
+        appleMobileWebAppCapable: 'yes',
+        appleMobileWebAppStatusBarStyle: 'black',
+
+        // 配置 workbox 插件
+        workboxPluginMode: 'InjectManifest',
+        workboxOptions: {
+            // InjectManifest 模式下 swSrc 是必填的。
+            swSrc: './src/registerServiceWorker.js'
+            // ...其它 Workbox 选项...
+        }
+    },
     chainWebpack(config) {
         config.plugins.delete('preload')
         config.plugins.delete('prefetch')
-
+        config.plugin('workbox')
         // set svg-sprite-loader
         config.module
             .rule('svg')
