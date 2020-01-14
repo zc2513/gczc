@@ -140,7 +140,7 @@ export const constantRoutes = [
     },
     {
         path: '/test',
-        component: () => import('@/components/pagination'),
+        component: () => import('@/components/element-ui-component'),
         meta: { title: '组件测试', icon: 'form' }
     },
 
